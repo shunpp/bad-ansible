@@ -1,0 +1,4 @@
+---
+# vars file for frontend-tier
+package_name: haproxy
+app_port: 8080
