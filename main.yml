@@ -6,7 +6,7 @@
     - {name: common}
 
 - name : setup for db-tier
-  hosts: frontends 
+  hosts: appdb1 
   become: true
   roles:
     - {name: db-tier}
