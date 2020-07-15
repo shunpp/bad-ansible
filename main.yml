@@ -22,3 +22,9 @@
   become: true
   roles:
     - {name: frontend-tier}
+
+- name : smoke-test
+  hosts: localhost
+  become: false
+  roles:
+    - {name: smoke-test}

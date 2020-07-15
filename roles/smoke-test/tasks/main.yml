@@ -1,0 +1,10 @@
+---
+# tasks file for smoke-test
+- name: check for proper response
+  uri:
+    url: http://frontend1.{{GUID}}.example.opentlc.com
+    return_content: yes
+  register: result
+  until: '"Ansible has done its job" in result.content'
+  retries: 10
+  delay: 1
