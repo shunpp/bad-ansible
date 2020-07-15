@@ -10,16 +10,19 @@
     name: "{{ service_name }}"
     enabled: yes
       
-#- name: tell user to finish setting up postgres
-#  debug:
-#    msg: "Either uncomment the postgres setup or manually login and initialize"
+- name: check PG_VERSION
+  stat:
+    path: /var/lib/pgsql/data/PG_VERSION
+  register: pg_version
+  
+- name: initilize postgres
+  command: postgresql-setup initdb
+  when: pg_version.stat.exists == false
 
-# only run the next 2 tasks once!
-#- name: initilize postgres
-#  command: postgresql-setup initdb
-#
-#- name: initilize postgres some more
-#  command: chkconfig postgresql on
+- name: Enable service {{ package_name }}, and not touch the state
+  service:
+    name: "{{ service_name }}"
+    enabled: yes
 
 - name: start {{ package_name }}
   service:
