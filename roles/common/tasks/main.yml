@@ -2,6 +2,6 @@
 # tasks file for common
 - name: enable repos
   template:
-    src: "{{ repo_name }}"
+    src: open_three-tier-app.repo.j2
     dest: "{{ repo_dir }}/{{ repo_name }}"
     mode: 0644

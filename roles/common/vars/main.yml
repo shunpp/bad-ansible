@@ -2,3 +2,4 @@
 # vars file for common
 repo_dir: /etc/yum.repos.d
 repo_name: open_three-tier-app.repo
+repo_url: http://admin.na.shared.opentlc.com
