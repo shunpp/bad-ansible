@@ -18,4 +18,3 @@
         name: "{{ item.public_v4 }}"
         group: "{{ item.metadata.deployment_name }}"
       with_items: "{{result.openstack_servers}}"
-~                                                             
